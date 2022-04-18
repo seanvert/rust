@@ -1,3 +1,12 @@
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn it_works() {
+        let result = 2 + 2;
+        assert_eq!(result, 4);
+    }
+}
+
 extern crate glutin_window;
 extern crate graphics;
 // extern crate opengl_graphics;
@@ -26,7 +35,6 @@ use std::f64::consts::PI;
 // mods
 mod object;
 use object::Object;
-use app;
 
 
 pub struct App {
@@ -202,7 +210,6 @@ impl App {
 }
 
 fn main() {
-	app::appi::Appi::new();
 	let opengl = OpenGL::V3_2;
 	let mut window: PistonWindow = WindowSettings::new("spinning-square",
 													   [1366, 768])
@@ -240,3 +247,4 @@ fn main() {
 		}
 	}
 }
+
