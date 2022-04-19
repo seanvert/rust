@@ -8,3 +8,8 @@ pub mod hosting {
 	
     
 }
+use crate::app::App;
+pub fn teste (app: &mut App) {
+	app.test();
+	println!("{}", "asdasd");
+}
