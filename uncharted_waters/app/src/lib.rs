@@ -9,8 +9,6 @@ extern crate gfx;
 use graphics::*;
 
 mod object;
-
-mod front_of_house;
 mod view;
 mod controller;
 mod model;
