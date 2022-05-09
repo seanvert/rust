@@ -18,6 +18,7 @@ pub mod app {
 	pub use crate::object::object::Object;
 	pub use crate::view::view::render;
 	pub use crate::controller::control;
+	pub use crate::model::model::update;
 	use gfx_device_gl::{Resources, CommandBuffer};
 	use gfx_graphics::TextureContext;
 	use gfx_graphics::Flip;
@@ -36,7 +37,7 @@ pub mod app {
 		rotation: f64,
 		cursor: [f64; 2],
 		controls: control::Control,
-		player: Object,
+		pub player: Object,
 		window_size: [f64; 2],
 	}
 
@@ -70,9 +71,11 @@ pub mod app {
 											  &mut window, &mut e);
 				}
 				if let Some(args) = e.update_args() {
+					crate::model::model::update(&mut self.player, &mut self.controls, &args);
 //					app.update(&args);
 				}
 				if let Some(inp) = e.button_args() {
+//					println!("{:?}", self.controls);
 					self.controls.on_input(piston::Input::Button(inp));
 //					app.on_input(piston::Input::Button(inp));
 				}
