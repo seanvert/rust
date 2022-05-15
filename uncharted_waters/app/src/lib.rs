@@ -66,7 +66,7 @@ pub mod app {
 	    while let Some(mut e) = events.next(&mut window) {
 		if let Some(args) = e.render_args() {
 		    // TODO ajeitar o path disso
-		    crate::view::view::render(self, &args, &mut window, &mut e);
+		    crate::view::view::render(self, &args, &mut window, &mut e, self.player.x, self.player.y);
 		}
 		if let Some(args) = e.update_args() {
 		    crate::model::model::update(&mut self.player, &mut self.controls, &args);
